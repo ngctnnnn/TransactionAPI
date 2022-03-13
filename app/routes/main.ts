@@ -1,4 +1,5 @@
 import express from 'express';
+import Block from '../block-chain-core/block';
 import BlockChainFunction from '../block-chain-core/main';
 import UserFunction from '../user/main';
 import User from '../user/user';
@@ -64,6 +65,7 @@ export class UsersRoutes extends CommonRoutesConfig {
                 let user = req.body.username;
                 let rechargeAmount = req.body.amount;
                 UserFunction.allUsers[user].updateAmountOfMoney(rechargeAmount);
+                UserFunction.allUsers[user].userChain.addBlock(new Block(new Date().getTime(), "Recharge " + rechargeAmount, rechargeAmount));
                 res.status(200).send(UserFunction.allUsers[user]);
             });
 
