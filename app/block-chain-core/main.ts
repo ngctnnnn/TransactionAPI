@@ -10,9 +10,9 @@ function postNewTransaction(currentChain: BlockChain, transactionInfo: string, a
     currentChain.addBlock(new Block(today, transactionInfo, amountOfMoney));
 }
 
-const exportFunction = {
+const BlockChainFunction = {
     totalTransaction, 
     postNewTransaction
 }
 
-export default exportFunction;
+export default BlockChainFunction;
