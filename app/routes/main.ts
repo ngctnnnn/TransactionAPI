@@ -1,3 +1,4 @@
+import e from 'express';
 import express from 'express';
 import Block from '../block-chain-core/block';
 import BlockChainFunction from '../block-chain-core/main';
@@ -50,14 +51,33 @@ export class UsersRoutes extends CommonRoutesConfig {
                 res.status(200).send(AllUsers);
             });
         
+        this.app.route('/withdraw')
+            .post((req: express.Request, res: express.Response) => {
+                let user = UserFunction.allUsers[req.body.username];
+                let withdrawAmount = req.body.amount;
+
+                if (withdrawAmount > user.amountOfMoney) {
+                    res.status(200).send('Not enough money to withdraw');
+                } else {
+                    user.updateAmountOfMoney(-1 * withdrawAmount);
+                    user.userChain.addBlock(new Block(new Date().getTime(), user.userName + " withdraws " + withdrawAmount, -1*withdrawAmount));
+                    res.status(200).send(user);
+                }
+            });
+
         this.app.route('/transfer')
             .post((req: express.Request, res: express.Response) => {
                 let userToTransfer = UserFunction.allUsers[req.body.from];
                 let userReceiveTransfer = UserFunction.allUsers[req.body.to];
                 let transferAmount = req.body.amount;
 
-                userToTransfer.transferMoney(userReceiveTransfer, transferAmount);
-                res.status(200).send([userToTransfer, userReceiveTransfer]);
+                if (transferAmount > userToTransfer.amountOfMoney) {
+                    res.status(200).send('Not enough of money to transfer');
+                } else { 
+                    userToTransfer.transferMoney(userReceiveTransfer, transferAmount);
+                    res.status(200).send([userToTransfer, userReceiveTransfer]);
+                }
+
             });
 
         this.app.route('/recharge-money')
