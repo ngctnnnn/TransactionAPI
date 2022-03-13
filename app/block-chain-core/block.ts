@@ -1,4 +1,4 @@
-const SHA256 = require('crypto-js/sha256');
+const SHA256 = require("crypto-js/sha256");
 
 class Block {
     index: number = 0;
@@ -10,7 +10,14 @@ class Block {
     amountOfMoney: number;
     currentMoney: number;
 
-    constructor(current_time: number, info: string, amountOfMoney: number, currentMoney: number = 0, prevHash: string = "", nextHash: string = "") {
+    constructor(
+        current_time: number,
+        info: string,
+        amountOfMoney: number,
+        currentMoney: number = 0,
+        prevHash: string = "",
+        nextHash: string = ""
+    ) {
         // this.index = index;
         this.current_time = current_time;
         this.info = info;
@@ -21,9 +28,14 @@ class Block {
         this.currentMoney = currentMoney;
     }
     computeHash() {
-        return SHA256(this.index + this.current_time + this.info + this.prevHash +  this.amountOfMoney).toString();       
+        return SHA256(
+            this.index +
+                this.current_time +
+                this.info +
+                this.prevHash +
+                this.amountOfMoney
+        ).toString();
     }
 }
-
 
 export default Block;

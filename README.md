@@ -5,7 +5,9 @@
 </div>
 
 ### API List
+
 #### 1. Add new users
+
 ```json
 POST: /register
 {
@@ -14,11 +16,13 @@ POST: /register
 ```
 
 #### 2. Get all users information
+
 ```json
 GET: /allUsers
 ```
 
 #### 3. Withdraw money
+
 ```json
 POST: /withdraw
 {
@@ -28,6 +32,7 @@ POST: /withdraw
 ```
 
 #### 4. Transfer money to another
+
 ```json
 POST: /transfer
 {
@@ -38,6 +43,7 @@ POST: /transfer
 ```
 
 #### 5. Recharge money
+
 ```json
 POST: /recharge-money
 {

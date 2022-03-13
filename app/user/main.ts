@@ -1,25 +1,23 @@
-import User from './user';
+import User from "./user";
 
-let allUsers : Record<string, User> = {
-    "vnmc": new User("vnmc"),
-    "pnt": new User("pnt"),
-    "meowu": new User("meowu")
-}
+let allUsers: Record<string, User> = {
+    vnmc: new User("vnmc"),
+    pnt: new User("pnt"),
+    meowu: new User("meowu"),
+};
 
-function AddNewUser(AllUsers : Record<string, User>, newUser: User) : void {
+function AddNewUser(AllUsers: Record<string, User>, newUser: User): void {
     AllUsers[newUser.userName] = newUser;
 }
 
-function GetAllUser(AllUsers: Record<string, User>){
+function GetAllUser(AllUsers: Record<string, User>) {
     let result = [];
-    for (let user in AllUsers) { 
-        result.push(
-            {
-                "userID": AllUsers[user].getUserID(),
-                "userName": AllUsers[user].getUserName(),
-                "amountOfMoney": AllUsers[user].getAmountOfMoney()
-            }
-        )
+    for (let user in AllUsers) {
+        result.push({
+            userID: AllUsers[user].getUserID(),
+            userName: AllUsers[user].getUserName(),
+            amountOfMoney: AllUsers[user].getAmountOfMoney(),
+        });
     }
     return result;
 }
@@ -27,5 +25,5 @@ function GetAllUser(AllUsers: Record<string, User>){
 export default {
     AddNewUser,
     allUsers,
-    GetAllUser
+    GetAllUser,
 };
