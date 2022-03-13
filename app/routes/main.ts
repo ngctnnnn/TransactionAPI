@@ -1,24 +1,9 @@
-import e from "express";
 import express from "express";
 import Block from "../block-chain-core/block";
 import BlockChainFunction from "../block-chain-core/main";
 import UserFunction from "../user/main";
 import User from "../user/user";
-
-export abstract class CommonRoutesConfig {
-    app: express.Application;
-    name: string;
-
-    constructor(app: express.Application, name: string) {
-        this.app = app;
-        this.name = name;
-        this.configureRoutes();
-    }
-    getName() {
-        return this.name;
-    }
-    abstract configureRoutes(): express.Application;
-}
+import { CommonRoutesConfig } from "./CommonRoute";
 
 export class UsersRoutes extends CommonRoutesConfig {
     constructor(app: express.Application) {

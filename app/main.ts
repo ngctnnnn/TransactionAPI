@@ -1,5 +1,6 @@
 import http from "http";
-import { UsersRoutes, CommonRoutesConfig } from "./routes/main";
+import { UsersRoutes } from "./routes/main";
+import { CommonRoutesConfig } from "./routes/CommonRoute";
 import express from "express";
 import * as winston from "winston";
 import * as expressWinston from "express-winston";
