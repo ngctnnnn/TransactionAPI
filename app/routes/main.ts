@@ -37,7 +37,7 @@ export class UsersRoutes extends CommonRoutesConfig {
                 res.status(200).send(req.body);
             });        
 
-        this.app.route('/users')
+        this.app.route('/allUsers')
             .get((req: express.Request, res: express.Response) => {
                 var AllUsers = UserFunction.GetAllUser(UserFunction.allUsers);
                 res.status(200).send(AllUsers);
