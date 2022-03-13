@@ -1,5 +1,7 @@
 import express from 'express';
-import totalTransaction from '../controllers/main';
+import exportFunction from '../block-chain-core/main';
+// import totalTransaction from '../block-chain-core/main';
+// import postNewTransaction from '../block-chain-core/main';
 
 
 export abstract class CommonRoutesConfig {
@@ -23,13 +25,15 @@ export class UsersRoutes extends CommonRoutesConfig {
     }
 
     configureRoutes() {
-        this.app.route('/users')
+        this.app.route('/transaction')
         .get((req: express.Request, res: express.Response) => {
-            res.status(200).send(totalTransaction);
+            res.status(200).send(exportFunction.totalTransaction);
         })
         .post((req: express.Request, res: express.Response) => {
-            res.status(200).send(`Post to users`);
-        });
+            exportFunction.postNewTransaction(exportFunction.totalTransaction, req.body.transactionInfo, req.body.amountOfMoney);
+            res.status(200).send(req.body);
+        });        
+
         return this.app;
     }
 }
