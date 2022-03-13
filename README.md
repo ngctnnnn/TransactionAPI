@@ -39,6 +39,7 @@ POST: /transfer
 
 #### 5. Recharge money
 ```json
+POST: /recharge-money
 {
     "username": "vnmc",
     "amount": 20000000
