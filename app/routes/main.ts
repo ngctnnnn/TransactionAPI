@@ -1,5 +1,5 @@
 import express from "express";
-import Block from "../block-chain-core/block";
+import {Block} from "../block-chain-core/block";
 import BlockChainFunction from "../block-chain-core/main";
 import UserFunction from "../user/main";
 import User from "../user/user";

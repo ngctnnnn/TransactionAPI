@@ -1,5 +1,5 @@
-import Block from "./block";
-import BlockChain from "./block-chain";
+import { Block } from "./block";
+import {BlockChain} from "./block-chain";
 
 let totalTransaction = new BlockChain();
 

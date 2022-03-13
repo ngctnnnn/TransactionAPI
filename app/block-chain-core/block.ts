@@ -1,6 +1,6 @@
 const SHA256 = require("crypto-js/sha256");
 
-class Block {
+export class Block {
     index: number = 0;
     current_time: number;
     info: string;
@@ -37,5 +37,3 @@ class Block {
         ).toString();
     }
 }
-
-export default Block;

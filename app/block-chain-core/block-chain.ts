@@ -1,6 +1,6 @@
-import Block from "./block";
+import { Block } from "./block";
 
-class BlockChain {
+export class BlockChain {
     blockChain: [Block];
 
     constructor() {
@@ -51,5 +51,3 @@ class BlockChain {
         return true;
     }
 }
-
-export default BlockChain;

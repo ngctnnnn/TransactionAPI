@@ -1,8 +1,8 @@
 const sha256 = require("crypto-js/sha256");
 
 import { BlockList } from "net";
-import Block from "../block-chain-core/block";
-import BlockChain from "../block-chain-core/block-chain";
+import {Block} from "../block-chain-core/block";
+import {BlockChain} from "../block-chain-core/block-chain";
 
 class User {
     userID: string;
